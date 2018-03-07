@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="GBK" http-equiv="Content-Type" content="text/html">
+    <script type="text/javascript" src="util/three.js"></script>
+    <script type="text/javascript" src="util/Tween.js"></script>
+    <script type="text/javascript" src="constant/Constant.js"></script>
+    <script type="text/javascript" src="constant/Functions.js"></script>
+    <link rel="stylesheet" href="css/myStyle.css"/>
+    <style>
+        body{
+            margin:0;
+            overflow: hidden;
+        }
+    </style>
+    <title>MyJumper</title>
+</head>
+<body>
+<div id="sorce">
+    <p id="sorce1">得分:</p>
+    <p id="sorce2">0</p>
+</div>
+<div id="WebGL-output"></div>
+
+<script type="text/javascript">
+    function init()
+    {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(45,window.innerWidth/window.innerHeight,0.1,1000);
+        renderer = new THREE.WebGLRenderer();
+        renderer.setClearColor(new THREE.Color(0xffffff));
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        camera.position.set(cameraPosition_x,cameraPosition_y,cameraPosition_z);
+        camera.lookAt(new THREE.Vector3(cameraLookAt_x,cameraLookAt_y,cameraLookAt_z));
+
+        LoadMyMesh();
+        //背景板
+        var planeGeometry = new THREE.PlaneGeometry(150,150);
+        var planeMaterial = new THREE.MeshLambertMaterial({color:0xe799cc});
+        var plane = new THREE.Mesh(planeGeometry,planeMaterial);
+        plane.rotation.x = -0.5*Math.PI;
+        plane.position.set(0,0,0);
+        plane.receiveShadow =true;
+        scene.add(plane);
+
+        var ambientColor = "#ffffff";
+        var ambientLight = new THREE.AmbientLight(ambientColor,0.5);
+        scene.add(ambientLight);
+
+        spotLight = new THREE.SpotLight(0xffffff,0.8);
+        spotLight.position.set(spotLight_x,spotLight_y,spotLight_z);
+        spotLight.angle=160;
+        spotLight.target=plane;
+        spotLight.castShadow = true;
+        scene.add(spotLight);
+        Add3DObj();
+
+        document.getElementById("WebGL-output").appendChild(renderer.domElement);
+        document.addEventListener('mousedown',onMouseDown,true);
+        document.addEventListener('mouseup',onMouseUp,true);
+
+        setInterval(changeSpeed,16.6);
+        setInterval(jump,16.6);
+        setInterval(changeCamera,16.6);
+        renderScene();
+        function renderScene()
+        {
+            TWEEN.update();
+            requestAnimationFrame(renderScene);
+            renderer.render(scene,camera);
+        }
+    }
+    window.onload = init();
+</script>
+</body>
+</html>

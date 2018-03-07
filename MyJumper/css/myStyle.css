@@ -1,0 +1,13 @@
+#sorce{
+    position: absolute;/*设置位绝对定位 以屏幕左上角为0点*/
+    z-index: 2;/*显示层次顺序*/
+    font-size: 50px;
+    left: 20px;
+}
+#sorce1{
+    float: left;/*靠左浮动*/
+}
+#sorce2{
+    float: left;
+
+}
