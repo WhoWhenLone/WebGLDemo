@@ -1,72 +1,87 @@
-
+ï»¿
 var scene;
 var camera;
 var renderer;
 var spotLight;
-//ÉãÏñ»ú²ÎÊı Î»ÖÃ
+var stats;
+//æ‘„åƒæœºå‚æ•° ä½ç½®
 var cameraPosition_x = -40;
 var cameraPosition_y = 40;
 var cameraPosition_z = -40;
-//ÉãÏñ»úÄ¿±êµãÎ»ÖÃ
+//æ‘„åƒæœºç›®æ ‡ç‚¹ä½ç½®
 var cameraLookAt_x = 0;
 var cameraLookAt_y = 0;
 var cameraLookAt_z = 0;
-//¼ÇÂ¼ÉãÏñ»úÎ»ÖÃ ÓÃÀ´¼ÆËãÉãÏñ»úÒÆ¶¯¾àÀë
-//ÉãÏñ»ú²ÎÊı Î»ÖÃ
+//è®°å½•æ‘„åƒæœºä½ç½® ç”¨æ¥è®¡ç®—æ‘„åƒæœºç§»åŠ¨è·ç¦»
+//æ‘„åƒæœºå‚æ•° ä½ç½®
 var signcameraPosition_x = cameraPosition_x;
 var signcameraPosition_z = cameraPosition_z;
-//ÉãÏñ»úÄ¿±êµãÎ»ÖÃ
+//æ‘„åƒæœºç›®æ ‡ç‚¹ä½ç½®
 var signcameraLookAt_x = cameraLookAt_x;
-var signcameraLookAt_z = cameraLookAt_z
-//¾Û¹âµÆÎ»ÖÃ
-var spotLight_x = 20;
-var spotLight_y = 30;
-var spotLight_z = -5;
-//ÎïÌåÊıÁ¿
+var signcameraLookAt_z = cameraLookAt_z;
+//èšå…‰ç¯ä½ç½®
+var spotLight_x = 50+20;
+var spotLight_y = 50;
+var spotLight_z = 20;
+//ç‰©ä½“æ•°é‡
 var objCount=0;
-//ÎïÌåÊı×é
-var ObjArray = new Array();
-//»ù±¾¼¸ºÎÌåÊı×é
-var basicObjArray = new Array();
-//³õÊ¼¼¸ºÎÌå
+
+//åˆå§‹å‡ ä½•ä½“
 var basicCube_0;
 var basicCube_1;
 var basicCube_2;
 var basicCube_3;
 var basicCube_4;
-//³õÊ¼Ô²Öù
+//åˆå§‹åœ†æŸ±
 var basicCylinder_0;
 var basicCylinder_1;
 var basicCylinder_2;
 var basicCylinder_3;
 var basicCylinder_4;
-//Ìø¶¯µÄ·½¿é¶ÔÏó
+//è·³åŠ¨çš„æ–¹å—å¯¹è±¡
 var jumper;
-//ÊÇ·ñÌø¶¯×´Ì¬Î»
+//æ˜¯å¦è·³åŠ¨çŠ¶æ€ä½
 var jumpState =false;
-//ÏÂÂä²¹¼ä¶¯»­ÒıÓÃ
+//ä¸‹è½è¡¥é—´åŠ¨ç”»å¼•ç”¨
 var downTween;
-//µ±Ç°Éú³ÉµÄ¼¸ºÎÌåµÄ±àºÅ
-//Ëæ»úÉú³É0-9
+//å½“å‰ç”Ÿæˆçš„å‡ ä½•ä½“çš„ç¼–å·
+//éšæœºç”Ÿæˆ0-9
 var currObjId;
-//µ±Ç°Éú³É·½¿éµÄËõ·ÅÏµÊı0.4-0.8
+//å½“å‰ç”Ÿæˆæ–¹å—çš„ç¼©æ”¾ç³»æ•°0.4-0.8
 var currScale;
-//ÏÂÒ»¸ö·½¿éµÄÎ»ÖÃÔö¼Ó·½ÏòÓÉËæ»úÊıÉú³É
+//ä¸‹ä¸€ä¸ªæ–¹å—çš„ä½ç½®å¢åŠ æ–¹å‘ç”±éšæœºæ•°ç”Ÿæˆ
 var currXORZ;
-//¼¸ºÎÌå¾àÀë Ëæ»úÉú³É2-8
+//å‡ ä½•ä½“è·ç¦» éšæœºç”Ÿæˆ2-8
 var currDistance;
-//ÏÂÒ»¸öÉú³ÉµÄ¼¸ºÎÌåÎ»ÖÃ
+//ä¸‹ä¸€ä¸ªç”Ÿæˆçš„å‡ ä½•ä½“ä½ç½®
 var nextObjPosition = new Array(0,2,0);
-//ÉÏÉıÏÂÂä±êÖ¾
+//ä¸Šå‡ä¸‹è½æ ‡å¿—
 var upAndDown=1;
-//Ìø¶¯·½¿éÇ°½øËÙ¶È
+//è·³åŠ¨æ–¹å—å‰è¿›é€Ÿåº¦
 var goSpeed=0;
-//¼ÆÊ±×´Ì¬Î»
+//è®¡æ—¶çŠ¶æ€ä½
 var speedState = false;
-//ÉãÏñ»ú¸Ä±ä±êÖ¾Î»
+//æ‘„åƒæœºæ”¹å˜æ ‡å¿—ä½
 var cameraState = false;
-//ÂäµØ³É¹¦×´Ì¬Î»
+//è½åœ°æˆåŠŸçŠ¶æ€ä½
+//true è¡¨ç¤ºè·³è½å¤±è´¥
 var downState = false;
-//·½¿éÌøÂäÊ§°Ü¶¯»­id
+//æ–¹å—è·³è½å¤±è´¥åŠ¨ç”»id
 var jumpFailId =-1;
-
+//é¼ æ ‡ç›‘å¬çŠ¶æ€ä½
+var mouseState = true;
+var modelname = ["cube.obj","cylinder.obj","desk.obj","chair.obj","webcube.obj"];
+var texname = ["mycube01.png","mycube02.png","mycube03.png","mycube04.png",
+    "mycylinder01.png","mycylinder02.png","mycylinder03.png",
+    "desk.png","chair.jpg","webcube.png"
+];
+//ç‰©ä½“æ•°ç»„
+var ObjArray = new Array();
+//åŸºæœ¬å‡ ä½•ä½“æ•°ç»„
+var basicObjArray = new Array();
+//å¾—åˆ†
+var sorce=0;
+//èµ·è·³ç²’å­ç³»ç»ŸGroup
+var sprites=new THREE.Group();
+//ä¸­å¿ƒç‚¹ç²’å­ç³»ç»ŸGroup
+var centersprites=new THREE.Group();

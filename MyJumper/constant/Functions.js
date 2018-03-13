@@ -1,82 +1,4 @@
-//³õÊ¼»¯¼¸ºÎÌå
-function LoadMyMesh()
-{
-    //»ù´¡µÄ¼¸ºÎÌå ÆäËûµÄ¼¸ºÎÌåÓÉ¸Ä¼¸ºÎÌå¿ËÂ¡µÃµ½
-    //·½¿é À¶É«
-    var basicCubeGeometry_0 = new THREE.CubeGeometry(10,10,10);
-    var basicCubeMaterial_0 = new THREE.MeshLambertMaterial({color:0x55bfc8});
-    basicCube_0 = new THREE.Mesh(basicCubeGeometry_0,basicCubeMaterial_0);
-    basicCube_0.castShadow = true;
-    basicObjArray[0] = basicCube_0;
-    //ÂÌÉ«
-    var basicCubeGeometry_1 = new THREE.CubeGeometry(10,10,10);
-    var basicCubeMaterial_1 = new THREE.MeshPhongMaterial({color:0x00ab51});
-    basicCube_1 = new THREE.Mesh(basicCubeGeometry_1,basicCubeMaterial_1);
-    basicCube_1.castShadow = true;
-    basicObjArray[2] = basicCube_1;
-    //»ÆÉ«
-    var basicCubeGeometry_2 = new THREE.CubeGeometry(10,10,10);
-    var basicCubeMaterial_2 = new THREE.MeshPhongMaterial({color:0xd58007});
-    basicCube_2 = new THREE.Mesh(basicCubeGeometry_2,basicCubeMaterial_2);
-    basicCube_2.castShadow = true;
-    basicObjArray[4] = basicCube_2;
-    //ºìÉ«
-    var basicCubeGeometry_3 = new THREE.CubeGeometry(10,10,10);
-    var basicCubeMaterial_3 = new THREE.MeshPhongMaterial({color:0xe8410b});
-    basicCube_3 = new THREE.Mesh(basicCubeGeometry_3,basicCubeMaterial_3);
-    basicCube_3.castShadow = true;
-    basicObjArray[6] = basicCube_3;
-    //»ÒÉ«
-    var basicCubeGeometry_4 = new THREE.CubeGeometry(10,10,10);
-    var basicCubeMaterial_4 = new THREE.MeshPhongMaterial({color:0x999999});
-    basicCube_4 = new THREE.Mesh(basicCubeGeometry_4,basicCubeMaterial_4);
-    basicCube_4.castShadow = true;
-    basicObjArray[8] = basicCube_4;
-    //Ô²Öù À¶É«
-    var basicCylinderGeometry_0 = new THREE.CylinderGeometry(10,10,10,25);
-    var basicCylinderMaterial_0 = new THREE.MeshPhongMaterial({color:0x55bfc8});
-    basicCylinder_0 = new THREE.Mesh(basicCylinderGeometry_0,basicCylinderMaterial_0);
-    basicCylinder_0.castShadow = true;
-    basicObjArray[1] = basicCylinder_0;
-    //ÂÌÉ«Ô²Öù
-    var basicCylinderGeometry_1 = new THREE.CylinderGeometry(10,10,10,25);
-    var basicCylinderMaterial_1 = new THREE.MeshPhongMaterial({color:0x00ab51});
-    basicCylinder_1 = new THREE.Mesh(basicCylinderGeometry_1,basicCylinderMaterial_1);
-    basicCylinder_1.castShadow = true;
-    basicObjArray[3] = basicCylinder_1;
-    //»ÆÉ«Ô²Öù
-    var basicCylinderGeometry_2 = new THREE.CylinderGeometry(10,10,10,25);
-    var basicCylinderMaterial_2 = new THREE.MeshPhongMaterial({color:0xd58007});
-    basicCylinder_2 = new THREE.Mesh(basicCylinderGeometry_2,basicCylinderMaterial_2);
-    basicCylinder_2.castShadow = true;
-    basicObjArray[5] = basicCylinder_2;
-    //ºìÉ«Ô²Öù
-    var basicCylinderGeometry_3 = new THREE.CylinderGeometry(10,10,10,25);
-    var basicCylinderMaterial_3 = new THREE.MeshPhongMaterial({color:0xe8410b});
-    basicCylinder_3 = new THREE.Mesh(basicCylinderGeometry_3,basicCylinderMaterial_3);
-    basicCylinder_3.castShadow = true;
-    basicObjArray[7] = basicCylinder_3;
-    //»ÒÉ«Ô²Öù
-    var basicCylinderGeometry_4 = new THREE.CylinderGeometry(10,10,10,25);
-    var basicCylinderMaterial_4 = new THREE.MeshPhongMaterial({color:0x999999});
-    basicCylinder_4 = new THREE.Mesh(basicCylinderGeometry_4,basicCylinderMaterial_4);
-    basicCylinder_4.castShadow = true;
-    basicObjArray[9] = basicCylinder_4;
-
-    //³õÊ¼»ù±¾·½¿é
-    var firstCube = basicObjArray[0].clone();
-    firstCube.scale.set(0.5,0.4,0.5);
-    firstCube.position.set(0,2.0,0);
-    scene.add(firstCube);
-    //Ìø¶¯µÄ·½¿é
-    var jumpGeometry = new THREE.CubeGeometry(2,3,2);
-    var jumpMaterial = new THREE.MeshPhongMaterial({color:0xff0000});
-    jumper = new THREE.Mesh(jumpGeometry,jumpMaterial);
-    jumper.position.set(0,5.5,0);
-    scene.add(jumper);
-}
-
-//ÎïÌåÏÂÂä·½·¨
+ï»¿//ç‰©ä½“ä¸‹è½æ–¹æ³•
 function CubeDown(object)
 {
     object.position.y=20;
@@ -86,10 +8,8 @@ function CubeDown(object)
         y:2.5,
         z:object.position.z
     },3000).easing(TWEEN.Easing.Bounce.Out).start(2000*objCount);
-    //downTween.repeat(Infinity);
 }
-
-//Ìí¼ÓÏÂÒ»¸ö¼¸ºÎÌåµÄ·½·¨
+//æ·»åŠ ä¸‹ä¸€ä¸ªå‡ ä½•ä½“çš„æ–¹æ³•
 function Add3DObj()
 {
     currScale = 0.4+Math.round(Math.random()*4)/10;
@@ -100,16 +20,16 @@ function Add3DObj()
     {
         currObjId=9;
     }
-    currXORZ = Math.round(Math.random()*10);
+    currXORZ = Math.round(Math.random()*5);
     if(currXORZ<5)
     {
         nextObjPosition[0]=nextObjPosition[0] + 10*(1+currScale);
-        console.log("xxxxx·½ÏòÔö¼ÓÒ»¸ö¼¸ºÎÌå");
+        console.log("xxxxxæ–¹å‘å¢åŠ ä¸€ä¸ªå‡ ä½•ä½“");
     }
     else
     {
         nextObjPosition[2]=nextObjPosition[2] + 10*(1+currScale);
-        console.log("zzzz·½ÏòÔö¼ÓÒ»¸ö¼¸ºÎÌå");
+        console.log("zzzzæ–¹å‘å¢åŠ ä¸€ä¸ªå‡ ä½•ä½“");
     }
     console.log(currObjId);
     ObjArray[objCount] = basicObjArray[currObjId].clone();
@@ -120,92 +40,131 @@ function Add3DObj()
     //CubeDown(ObjArray[objCount]);
     console.log("objCount"+objCount);
     objCount++;
+    sorce++;
 
-    console.log("³¡¾°ÖĞµÄÎïÌå¸öÊı"+scene.children.length);
-
-     renderer.render(scene,camera);
+    if(objCount>6)
+    {
+        var childrenOFscene = scene.children;
+        var removeOBJ = childrenOFscene[objCount-4];
+        if(removeOBJ instanceof THREE.Mesh)
+        {
+            scene.remove(removeOBJ);
+        }
+    }
+    console.log("åœºæ™¯ä¸­çš„ç‰©ä½“ä¸ªæ•°"+scene.children.length);
 }
+//é‡å†™é¼ æ ‡ç›‘å¬
 function onMouseDown()
 {
-    console.log("°´ÏÂÊó±ê");
-    upAndDown=1;
-    goSpeed=0;
-    speedState =true;
+    if(mouseState&&!jumpState)
+    {
+        upAndDown=1;
+        goSpeed=0;
+        speedState =true;
+        addsprite();
+    }
 }
-
 function onMouseUp()
 {
-    console.log("Ì§ÆğÊó±ê");
-    speedState =false;
-    console.log("gospeed    "+goSpeed);
-    jumpState=true;
-    jumper.scale.y=1.0;
-    jumper.position.y=5.5;
+    if(mouseState&&!jumpState)
+    {
+        speedState =false;
+        jumpState=true;
+        jumper.scale.y=0.3;
+        jumper.position.y=5.5;
+        removesprite();
+    }
 }
-
 function jump()
 {
     if(jumpState==true)
     {
-        //ÉÏÉıµ½×î¸ßµã ¸Ä±ä×´Ì¬Î»
+        //ä¸Šå‡åˆ°æœ€é«˜ç‚¹ æ”¹å˜çŠ¶æ€ä½
         if(jumper.position.y>=11.5 )
         {
             upAndDown=2;
         }
-        //ÎïÌåÂäÔÚ·½¿é
-        //ÔÚÆäÖĞÅĞ¶ÏÅö×²
+        //ç‰©ä½“è½åœ¨æ–¹å—
+        //åœ¨å…¶ä¸­åˆ¤æ–­ç¢°æ’
         if(jumper.position.y<5.4)
         {
             upAndDown=0;
-            
             if(currXORZ<5)
             {
-                //Ìø¹ıÍ·
+                //xè½´æ–¹å‘è·³è¿‡å¤´
                 if(jumper.position.x>nextObjPosition[0]+5*currScale)
                 {
-                    alert("ÓÎÏ·Ê§°Ü   XÖá·½ÏòÌø¹ıÍ·");
+                    jumpFailId=0;
+                    downState = true;
+                    objCount=objCount-1;
+                    sorce = sorce-1;
                 }
-                //Ìø½üÁË
+                //xè½´æ–¹å‘è·³è¿‘äº†
                 else if(jumper.position.x<nextObjPosition[0]-5*currScale)
                 {
-                    alert("ÓÎÏ·Ê§°Ü   XÖá·½ÏòÌø½üÁË");
+                    jumpFailId=1;
+                    downState = true;
+                    objCount=objCount-1;
+                    sorce = sorce-1;
                 }
-                //Õı³£
+                //æ­£å¸¸
                 else
                 {
-                    //Ôö¼Ó·ÖÊı
-                    document.getElementById("sorce2").innerHTML=objCount;
-                    //µ÷ÓÃ·½·¨ Ìí¼ÓÏÂÒ»¸ö·½¿é
-                    setTimeout( Add3DObj,1000);
+                    if(Math.abs(jumper.position.x-nextObjPosition[0])<1)
+                    {
+                        sorce = sorce+1;
+                        addcenter();
+                        console.log("xæ–¹å‘ç‰©ä½“å®Œç¾è½åœ° åˆ†æ•°åŠ 2");
+                    }
+                    jumpFailId=-1;
+                    //å¢åŠ åˆ†æ•°
+                    document.getElementById("sorce2").innerHTML=sorce;
+                    //è°ƒç”¨æ–¹æ³• æ·»åŠ ä¸‹ä¸€ä¸ªæ–¹å—
+                    Add3DObj();
+                    console.log("Add3DObj       æ–¹å—è·³è½æˆåŠŸ");
                     cameraState = true;
                     jumpState=false;
                 }
             }
             else if(currXORZ>5)
             {
-                //Ìø¹ıÍ·
+                //zè½´æ–¹å‘è·³è¿‡å¤´
                 if(jumper.position.z>nextObjPosition[2]+5*currScale)
                 {
-                    alert("ÓÎÏ·Ê§°Ü   ZÖá·½ÏòÌø¹ıÍ·");
+                    jumpFailId=2;
+                    downState = true;
+                    objCount=objCount-1;
+                    sorce = sorce-1;
                 }
-                //Ìø½üÁË
+                //zè½´æ–¹å‘è·³è¿‘äº†
                 else if(jumper.position.z<nextObjPosition[2]-5*currScale)
                 {
-                    alert("ÓÎÏ·Ê§°Ü   ZÖá·½ÏòÌø½üÁË");
+                    jumpFailId=3;
+                    downState = true;
+                    objCount=objCount-1;
+                    sorce = sorce-1;
                 }
-                //Õı³£
+                //æ­£å¸¸
                 else
                 {
-                    //Ôö¼Ó·ÖÊı
-                    document.getElementById("sorce2").innerHTML=objCount;
-                    //µ÷ÓÃ·½·¨ Ìí¼ÓÏÂÒ»¸ö·½¿é
-                    setTimeout( Add3DObj,1000);
+                    if(Math.abs(jumper.position.z-nextObjPosition[2])<1)
+                    {
+                        addcenter();
+                        sorce = sorce+1;
+                        console.log("zæ–¹å‘ç‰©ä½“å®Œç¾è½åœ° åˆ†æ•°åŠ 2");
+                    }
+                    jumpFailId=-1;
+                    //å¢åŠ åˆ†æ•°
+                    document.getElementById("sorce2").innerHTML=sorce;
+                    //è°ƒç”¨æ–¹æ³• æ·»åŠ ä¸‹ä¸€ä¸ªæ–¹å—
+                    Add3DObj();
+                    console.log("Add3DObj       æ–¹å—è·³è½æˆåŠŸ");
                     cameraState = true;
                     jumpState=false;
                 }
             }
         }
-        //x·½ÏòÔö¼Ó
+        //xæ–¹å‘å¢åŠ 
         if(currXORZ<5)
         {
             switch (upAndDown)
@@ -227,9 +186,8 @@ function jump()
                     jumper.rotation.z=0;
                     jumper.rotation.x=0;
             }
-            renderer.render(scene, camera);
         }
-        //z·½ÏòÔö¼Ó
+        //zæ–¹å‘å¢åŠ 
         else
         {
             switch (upAndDown)
@@ -251,7 +209,6 @@ function jump()
                     jumper.rotation.z=0;
                     jumper.rotation.x=0;
             }
-            renderer.render(scene, camera);
         }
     }
 }
@@ -262,75 +219,103 @@ function changeSpeed()
         goSpeed++;
         if(jumper.scale.y>=0.1)
         {
-            jumper.scale.y-=0.01;
+            jumper.scale.y-=0.003;
             jumper.position.y-=0.01;
         }
     }
 }
 function changeCamera()
 {
-    //ÉãÏñ»úÎ»ÖÃĞèÒª¸Ä±ä
+    //æ‘„åƒæœºä½ç½®éœ€è¦æ”¹å˜
     if(cameraState)
     {
-        //xÖáÒÆ¶¯
-        if(currXORZ<5)
+        //xè½´ç§»åŠ¨
+        if(currXORZ<=5)
         {
-            if((cameraPosition_x-signcameraPosition_x)<=10*(1+currScale))
+            if((cameraPosition_x-signcameraPosition_x)<=9.9*(1+currScale))
             {
                 cameraPosition_x +=0.1;
                 cameraLookAt_x += 0.1;
-                camera.position.set(cameraPosition_x,cameraPosition_y,cameraPosition_z);
-                camera.lookAt(new THREE.Vector3(cameraLookAt_x,cameraLookAt_y,cameraLookAt_z));
-            }
-            else {
-                cameraState = false;
-                //¼ÇÂ¼µ±Ç°ÉãÏñ»úÎ»ÖÃ ÓÃÓÚÏÂ´ÎÒÆ¶¯ÉãÏñ»ú¼ÆËã
-                signcameraPosition_x = cameraPosition_x;
-                signcameraPosition_z = cameraPosition_z;
-                //ÉãÏñ»úÄ¿±êµãÎ»ÖÃ
-                signcameraLookAt_x = cameraLookAt_x;
-                signcameraLookAt_z = cameraLookAt_z;
-            }
-        }
-        //zÖáÒÆ¶¯
-        else
-        {
-            if((cameraPosition_z-signcameraPosition_z)<=10*(1+currScale))
-            {
-                cameraPosition_z +=0.1;
-                cameraLookAt_z += 0.1;
+                spotLight_x+=0.2;
+                spotLight.position.set(spotLight_x,spotLight_y,spotLight_z);
                 camera.position.set(cameraPosition_x,cameraPosition_y,cameraPosition_z);
                 camera.lookAt(new THREE.Vector3(cameraLookAt_x,cameraLookAt_y,cameraLookAt_z));
             }
             else
             {
                 cameraState = false;
-                //¼ÇÂ¼µ±Ç°ÉãÏñ»úÎ»ÖÃ ÓÃÓÚÏÂ´ÎÒÆ¶¯ÉãÏñ»ú¼ÆËã
+                //è®°å½•å½“å‰æ‘„åƒæœºä½ç½® ç”¨äºä¸‹æ¬¡ç§»åŠ¨æ‘„åƒæœºè®¡ç®—
                 signcameraPosition_x = cameraPosition_x;
                 signcameraPosition_z = cameraPosition_z;
-                //ÉãÏñ»úÄ¿±êµãÎ»ÖÃ
+                //æ‘„åƒæœºç›®æ ‡ç‚¹ä½ç½®
+                signcameraLookAt_x = cameraLookAt_x;
+                signcameraLookAt_z = cameraLookAt_z;
+            }
+        }
+        //zè½´ç§»åŠ¨
+        else
+        {
+            if((cameraPosition_z-signcameraPosition_z)<=5.5*(1+currScale))
+            {
+                cameraPosition_z +=0.1;
+                cameraLookAt_z += 0.1;
+                spotLight_z+=0.2;
+                spotLight.position.set(spotLight_x,spotLight_y,spotLight_z);
+                camera.position.set(cameraPosition_x,cameraPosition_y,cameraPosition_z);
+                camera.lookAt(new THREE.Vector3(cameraLookAt_x,cameraLookAt_y,cameraLookAt_z));
+            }
+            else
+            {
+                cameraState = false;
+                //è®°å½•å½“å‰æ‘„åƒæœºä½ç½® ç”¨äºä¸‹æ¬¡ç§»åŠ¨æ‘„åƒæœºè®¡ç®—
+                signcameraPosition_x = cameraPosition_x;
+                signcameraPosition_z = cameraPosition_z;
+                //æ‘„åƒæœºç›®æ ‡ç‚¹ä½ç½®
                 signcameraLookAt_x = cameraLookAt_x;
                 signcameraLookAt_z = cameraLookAt_z;
             }
         }
     }
 }
-//·½¿éÌøÂäÊ§°ÜºóµÄ¶¯»­
-function jumpFail(jumpFailId)
+//æ–¹å—è·³è½å¤±è´¥åçš„åŠ¨ç”»
+function jumpFail()
 {
     switch (jumpFailId)
     {
-        //xÖáÌø¹ıÁË
+        //xè½´è·³è¿‡äº†
         case 0:
+            //alert("æ¸¸æˆå¤±è´¥   Xè½´æ–¹å‘è·³è¿‡å¤´");
+            document.getElementById("result").style.display = "block";
+            document.getElementById("mask").style.display = "block";
+            document.getElementById("result_sorce").innerHTML=sorce;
+            mouseState =false;
             break;
-        //xÖáÌø½üÁË
+        //xè½´è·³è¿‘äº†
         case 1:
+            //alert("æ¸¸æˆå¤±è´¥   Xè½´æ–¹å‘è·³è¿‘äº†");
+            document.getElementById("result").style.display = "block";
+            document.getElementById("mask").style.display = "block";
+            document.getElementById("result_sorce").innerHTML=sorce;
+            mouseState =false;
             break;
-        //zÖáÌøÔ¶ÁË
+        //zè½´è·³è¿œäº†
         case 2:
+            //alert("æ¸¸æˆå¤±è´¥   Zè½´æ–¹å‘è·³è¿‡å¤´");
+            document.getElementById("result").style.display = "block";
+            document.getElementById("mask").style.display = "block";
+            document.getElementById("result_sorce").innerHTML=sorce;
+            mouseState =false;
             break;
-        //zÖáÌø½üÁË
+        //zè½´è·³è¿‘äº†
         case 3:
+            //alert("æ¸¸æˆå¤±è´¥   Zè½´æ–¹å‘è·³è¿‘äº†");
+            document.getElementById("result").style.display = "block";
+            document.getElementById("mask").style.display = "block";
+            document.getElementById("result_sorce").innerHTML=sorce;
+            mouseState =false;
+            break;
+        default:
+            console.log("jumpFail       æ–¹å—è·³è½æˆåŠŸ");
             break;
     }
 }

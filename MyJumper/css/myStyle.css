@@ -1,3 +1,7 @@
+body{
+    -webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
+    -moz-user-select: none;
+}
 #sorce{
     position: absolute;/*设置位绝对定位 以屏幕左上角为0点*/
     z-index: 2;/*显示层次顺序*/
@@ -10,4 +14,56 @@
 #sorce2{
     float: left;
 
+}
+#result{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+}
+#mask{
+    position: relative;
+    margin:auto;
+    font-family: "微软雅黑";
+    font-size: 35px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    top: 25%;
+    width: 40%;
+    height: 30%;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.4);
+    border: 5px solid rgba(255,255,255,0.05);
+}#mask p{
+     text-align: center;
+ }
+#mask button{
+
+}
+#result_button{
+    margin: auto;
+    position: relative;
+    width: 50%;
+    height: 20%;
+    bottom: 0%;
+}
+button.restart{
+    position: relative;
+    border-radius: 20px;
+    background: white;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+
+}
+button.restart:hover{
+    color:#232323;
 }
