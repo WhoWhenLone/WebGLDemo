@@ -1,0 +1,18 @@
+#version 300 es
+precision mediump float;
+uniform sampler2D sTexture;//纹理内容数据
+uniform sampler2D sTexture1;//纹理内容数据
+in vec2 vTextureCoord; //接收从顶点着色器过来的参数
+out vec4 fragColor;
+
+void main()
+{
+    vec4 color11 = texture(sTexture,vTextureCoord);
+
+    vec4 color2 = texture(sTexture1,vTextureCoord);
+   //进行纹理采样
+   //fragColor = texture(sTexture, vTextureCoord);
+   //fragColor=color11 * color2;
+   fragColor = mix(texture(sTexture,vTextureCoord),texture(sTexture1,vTextureCoord),0.3);
+   //mix函数第三个参数是第二个纹理所占显示比例
+}
